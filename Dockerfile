@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY ./inference_requirements.txt /app
 
-RUN pip3 install --no-cache-dir --upgrade -r ./inference_requirements.txt
+RUN pip3 install --upgrade --no-cache-dir -r ./inference_requirements.txt
 
 COPY ./src /app/src
 

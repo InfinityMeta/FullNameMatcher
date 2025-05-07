@@ -6,8 +6,9 @@ from typing import Dict, List, Union
 
 import numpy as np
 import faiss
-import torch.nn.functional as F
+import torch
 from torch import Tensor
+import torch.nn.functional as F
 from transformers import AutoTokenizer, AutoModel
 
 from src.const import (
@@ -197,9 +198,13 @@ class Matcher:
         """
         tokenizer = AutoTokenizer.from_pretrained(self.encoder_name)
         encoder = AutoModel.from_pretrained(self.encoder_name)
+        encoder.eval()
 
         batch_dict = tokenizer(input, max_length=512, padding=True, truncation=True, return_tensors='pt')
-        encoder_outputs = encoder(**batch_dict)
+
+        with torch.no_grad():
+            encoder_outputs = encoder(**batch_dict)
+
         embeddings = self.average_pool(encoder_outputs.last_hidden_state, batch_dict['attention_mask'])
         embeddings = F.normalize(embeddings, p=2, dim=1)
         embeddings = embeddings.numpy()
