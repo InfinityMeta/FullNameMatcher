@@ -25,7 +25,7 @@ Items in JSON file have to include field `Name`. For example:
 3. The following step is to pull docker image for `FullnameMatcher` Service.
 
 ```bash
-docker push noonmare/fullname_matcher:v1.2
+docker pull noonmare/fullname_matcher:v1.2
 ```
 
 4. You need to run a docker container with service. 
