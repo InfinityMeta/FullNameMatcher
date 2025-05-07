@@ -49,6 +49,6 @@ When training is successfully finished message 'FullNameMatcher is prepared.' is
 7. Now you can use service for matching. Endpoint `\match` is used for this. You can note a number of desirable matches and candidates in format:
 
 ```python
-[{'Name': 'Иванов Иван Иванович'}, {'Name': 'Смирнов Паша Андреевич'}]
+[{"Name": "Иванов Иван Иванович"}, {"Name": "Смирнов Паша Андреевич"}]
 ```
 ![Matching](imgs/match.png)
