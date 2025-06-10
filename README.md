@@ -25,13 +25,13 @@ Items in JSON file have to include field `Name`. For example:
 3. The following step is to pull docker image for `FullnameMatcher` Service.
 
 ```bash
-docker pull noonmare/fullname_matcher:v1.2
+docker pull noonmare/fullname_matcher:v1.4
 ```
 
 4. You need to run a docker container with service. 
 
 ```bash
-docker run -v $(pwd)/data:/app/data -v $(pwd)/logs:/app/logs -p 8000:8000 noonmare/fullname_matcher:v1.2
+docker run -v $(pwd)/data:/app/data -v $(pwd)/logs:/app/logs -p 8000:8000 noonmare/fullname_matcher:v1.4
 ```
 
 5. After container with service becomes ready for interaction with it is preferably to use FastAPI Swagger. Follow the [link](http://0.0.0.0:8000/docs).
@@ -51,4 +51,4 @@ When training is successfully finished message 'FullNameMatcher is prepared.' is
 ```python
 [{"Name": "Иванов Иван Иванович"}, {"Name": "Смирнов Паша Андреевич"}]
 ```
-![Matching](imgs/match.png)
+![Matching](imgs/match.jpg)
